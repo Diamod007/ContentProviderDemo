@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.allens.test">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- 4大组件 都需要注册的 -->
+        <!-- authorities 包名 + 类名  -->
+        <provider
+            android:name=".MyProvider"
+            android:authorities="com.allens.test.MyProvider"
+            android:exported="true"
+            android:readPermission="com.allens.test.MyProvider.READ"
+            android:writePermission="com.allens.test.MyProvider.WRITE" />
+    </application>
+
+    <!--  申请permission的代码 -->
+    <permission
+        android:name="com.allens.test.MyProvider.READ"
+        android:label="provider pomission"
+        android:protectionLevel="normal" />
+
+    <permission
+        android:name="com.allens.test.MyProvider.WRITE"
+        android:label="provider pomission"
+        android:protectionLevel="normal" />
+
+
+</manifest>
